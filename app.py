@@ -16,24 +16,36 @@ app.config.update({
 def bar():
 	if request.method == 'POST':
 		form = cgi.FieldStorage()
-		with open ('fileToWrite.txt','w') as fileOutput:
+		with open ('fileToWrite.txt','a') as fileOutput:
 			if request.form.get('nome_bar'):
 			    fileOutput.write(request.form.get('nome_bar'))
-			    fileOutput.write(' | ')
+			    fileOutput.write('\n')
+			else:
+				flash('Coloque todos os dados')
+
 			if request.form.get('endereco'):
 				fileOutput.write(request.form.get('endereco'))
-				fileOutput.write(' | ')
+				fileOutput.write('\n')
+			else:
+				flash('Coloque todos os dados')
+
 			if request.form.get('horario_ini'):
 			    fileOutput.write(request.form.get('horario_ini'))
-			    fileOutput.write(' | ')
+			    fileOutput.write('\n')
+			else:
+				flash('Coloque todos os dados')
+
 			if request.form.get('horario_fin'):
 			    fileOutput.write(request.form.get('horario_fin'))
-			    fileOutput.write(' | ')
+			    fileOutput.write('\n')
+			else:
+				flash('Coloque todos os dados')
+
 			if request.form.get('especialidade'):
 			    fileOutput.write(request.form.get('especialidade'))
-			    fileOutput.write(' | | ')
+			    fileOutput.write('_____\n')
 			else:
-				flash('Coloque todas os dados')
+				flash('Coloque todos os dados')
 		
 	return render_template("index.html")
 
