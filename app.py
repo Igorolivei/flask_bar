@@ -15,8 +15,9 @@ app.config.update({
 @app.route("/", methods=['GET', 'POST'])
 def bar():
 	if request.method == 'POST':
+		dados
 		form = cgi.FieldStorage()
-		with open ('fileToWrite.txt','a') as fileOutput:
+		with open ('lista_bares.txt','a') as fileOutput:
 			if request.form.get('nome_bar'):
 			    fileOutput.write(request.form.get('nome_bar'))
 			    fileOutput.write('\n')
@@ -43,7 +44,7 @@ def bar():
 
 			if request.form.get('especialidade'):
 			    fileOutput.write(request.form.get('especialidade'))
-			    fileOutput.write('_____\n')
+			    fileOutput.write('\n_____\n')
 			else:
 				flash('Coloque todos os dados')
 		
