@@ -1,0 +1,33 @@
+<html>
+
+<head>
+	<link rel="stylesheet" type="text/css"
+	href="{{ url_for('static', filename='style.css') }}" />
+</head>
+		
+<body>
+	<h1>Cadastre seu bar aqui!</h1>
+
+	{% for message in get_flashed_messages() %}
+		<div class="flash">{{ message }}</div>
+		<br/>
+	{% endfor %}
+
+	<form action="{{ url_for('bar') }}"
+			method="POST">
+			<label for="id_nome_bar">Bar:</label>
+			<input type="text" name="nome_bar" id="id_nome_bar" />
+			<br/>
+			<label for="ender">Endereço:</label>
+			<input type="text" name="endereco" />
+			<br/>
+			<label for="id_nome_bar">Horário de funcionamento: </label>
+			<input type="time" name="horario_ini"/> às <input type="time" name="horario_fin" />
+			<br/>
+			<label for="espec">Especialidade:</label>
+			<input type="text" name="especialidade" />
+			<input type="submit" value="Enviar" />
+	</form>
+</body>
+
+</html>
