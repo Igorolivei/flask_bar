@@ -16,18 +16,22 @@
 	<form action="{{ url_for('bar') }}"
 			method="POST">
 			<label for="id_nome_bar">Bar:</label>
-			<input type="text" name="nome_bar" id="id_nome_bar" />
+			<input type="text" class="campo" name="nome_bar" id="id_nome_bar" />
 			<br/>
 			<label for="ender">Endereço:</label>
-			<input type="text" name="endereco" />
+			<input type="text" class="campo" name="endereco" />
 			<br/>
 			<label for="id_nome_bar">Horário de funcionamento: </label>
-			<input type="time" name="horario_ini"/> às <input type="time" name="horario_fin" />
+			<input type="time" class="campo" name="horario_ini"/> às <input type="time" class="campo" name="horario_fin" />
 			<br/>
 			<label for="espec">Especialidade:</label>
-			<input type="text" name="especialidade" />
+			<input type="text" class="campo" name="especialidade" />
 			<input type="submit" value="Enviar" />
 	</form>
+
+	<br/>
+	<h3><a href="/lista">Lista de bares</a></h3>
+
 </body>
 
 </html>

@@ -30,6 +30,14 @@ def bar():
 		
 	return render_template("index.html")
 
+@app.route("/lista")
+def exibir():
+	f = open('lista_bares.yml', 'r')
+	contents = f.read()
+	f.close()
+	return render_template("lista.html", contents = contents)
+	
+
 
 if __name__ == "__main__":
     app.run()
