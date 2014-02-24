@@ -15,36 +15,16 @@ app.config.update({
 @app.route("/", methods=['GET', 'POST'])
 def bar():
 	if request.method == 'POST':
-		dados
 		form = cgi.FieldStorage()
-		with open ('lista_bares.txt','a') as fileOutput:
-			if request.form.get('nome_bar'):
-			    fileOutput.write(request.form.get('nome_bar'))
-			    fileOutput.write('\n')
-			else:
-				flash('Coloque todos os dados')
-
-			if request.form.get('endereco'):
-				fileOutput.write(request.form.get('endereco'))
-				fileOutput.write('\n')
-			else:
-				flash('Coloque todos os dados')
-
-			if request.form.get('horario_ini'):
-			    fileOutput.write(request.form.get('horario_ini'))
-			    fileOutput.write('\n')
-			else:
-				flash('Coloque todos os dados')
-
-			if request.form.get('horario_fin'):
-			    fileOutput.write(request.form.get('horario_fin'))
-			    fileOutput.write('\n')
-			else:
-				flash('Coloque todos os dados')
-
-			if request.form.get('especialidade'):
-			    fileOutput.write(request.form.get('especialidade'))
-			    fileOutput.write('\n_____\n')
+		with open ('lista_bares.yml','a') as fileOutput:
+			if request.form.get('nome_bar') and request.form.get('endereco') \
+					and request.form.get('horario_ini') and request.form.get('horario_fin') \
+					and request.form.get('especialidade'):
+				dados = request.form.get('nome_bar') + '\n' + request.form.get('endereco') \
+					+ '\n' + request.form.get('horario_ini') + '\n' + request.form.get('horario_fin') \
+					+ '\n' + request.form.get('especialidade')
+				fileOutput.write(dados)
+				fileOutput.write('\n---\n')
 			else:
 				flash('Coloque todos os dados')
 		
