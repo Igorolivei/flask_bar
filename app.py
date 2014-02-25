@@ -17,12 +17,10 @@ def bar():
 	if request.method == 'POST':
 		form = cgi.FieldStorage()
 		with open ('lista_bares.yml','a') as fileOutput:
-			if request.form.get('nome_bar') and request.form.get('endereco') \
-					and request.form.get('horario_ini') and request.form.get('horario_fin') \
-					and request.form.get('especialidade'):
-				dados = request.form.get('nome_bar') + '\n' + request.form.get('endereco') \
-					+ '\n' + request.form.get('horario_ini') + '\n' + request.form.get('horario_fin') \
-					+ '\n' + request.form.get('especialidade')
+			if '' not in request.form.values():
+				dados = ''
+				for campo in request.form.values():
+					dados += campo + '\n'
 				fileOutput.write(dados)
 				fileOutput.write('\n---\n')
 			else:
