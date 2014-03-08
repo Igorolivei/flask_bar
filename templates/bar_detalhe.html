@@ -1,19 +1,16 @@
 {% extends "layout.html" %}
 {% block body %}
 		
-	<h2>Bares cadastrados:</h2>
 	<div>
 		<table name="bares" border="1px">
 		{% for content in contents %}
 			<tr>
-				<td>{{content.nome}}</a></td>
+				<td>{{ content.nome }}</td>
 				<td>{{ content.descricao }}</td>
 			</tr>
 		{% endfor %}
 		</table>			
 	</div>
 
-	<br/>
-	<a href="/cadastrar">Cadastrar novo bar</a>
 
 {% endblock %}

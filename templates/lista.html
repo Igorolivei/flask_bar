@@ -1,9 +1,5 @@
-<html>
-
-<head>
-	<link rel="stylesheet" type="text/css"
-	href="{{ url_for('static', filename='style.css') }}" />
-</head>
+{% extends "layout.html" %}
+{% block body %}
 		
 <body>
 	<h2>Bares cadastrados:</h2>
@@ -14,6 +10,5 @@
 
 	<br/>
 	<a href="/">Voltar</a>
-</body>
 
-</html>
+{% endblock %}
